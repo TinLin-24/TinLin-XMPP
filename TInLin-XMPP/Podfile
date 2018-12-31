@@ -1,0 +1,27 @@
+platform :ios, '8.0'
+
+target 'TinLin-XMPP' do
+    #
+    #pod 'NIMKit', '~> 2.11.2'
+    #
+    pod 'MJRefresh', '~> 3.1.15.7'
+    # YY 分类
+    pod 'YYCategories' , '~> 1.0.4'
+    #
+    pod 'Masonry', '~> 1.0.1'
+    #
+    #pod 'ChatKit', '~> 2.3.9'
+    #
+    pod 'JSQMessagesViewController', '~> 7.3.5'
+    #pod 'JSQMessagesViewController', :git => 'https://github.com/FWAlex/JSQMessagesViewController.git'
+    #pod 'JSQMessagesViewController', :git => 'https://github.com/Tulleb/JSQMessagesViewController.git', :branch => 'develop', :inhibit_warnings => true
+    #pod 'JSQMessagesViewController', :git => 'https://github.com/Ariandr/JSQMessagesViewController.git', :branch => 'master', :inhibit_warnings => true
+    #
+    pod 'TZImagePickerController'
+    #
+    pod 'SDWebImage', '~> 4.0'
+    #
+    pod 'MBProgressHUD', '~> 1.1.0'
+    #
+    pod 'KSPhotoBrowser'
+end
