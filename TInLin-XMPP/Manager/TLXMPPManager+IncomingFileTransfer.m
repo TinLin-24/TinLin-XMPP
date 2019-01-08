@@ -10,6 +10,8 @@
 
 #import "TLMessageMediaModel.h"
 
+static NSString *const kIncomingFilePath = @"file";
+
 @implementation TLXMPPManager (IncomingFileTransfer)
 
 #pragma mark - XMPPIncomingFileTransferDelegate
@@ -41,7 +43,7 @@
     [message addAttributeWithName:@"from" stringValue:self.incomingFileFromJID.bare];
     [message addSubject:[@(type) stringValue]];
     [message addBody:path.lastPathComponent];
-    
+
     // 保存消息记录
     XMPPMessageArchivingCoreDataStorage *xmppMessageArchivingCoreDataStorage = self.xmppMessageArchivingCoreDataStorage;
     

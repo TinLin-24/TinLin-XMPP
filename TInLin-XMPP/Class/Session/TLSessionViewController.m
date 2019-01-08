@@ -467,7 +467,8 @@
             [JSQSystemSoundPlayer jsq_playMessageSentSound];
         }
         else {
-            [MBProgressHUD tl_showTips:[error description]];
+            NSString *tips = error.code == -1 ? @"有文件在发送中！" : error.userInfo[@"NSLocalizedDescription"];
+            [MBProgressHUD tl_showTips:tips];
         }
     };
     [self presentViewController:controller animated:YES completion:nil];
@@ -513,10 +514,14 @@
         @strongify(self);
         NSString *path = [[info[@"PHImageFileSandboxExtensionTokenKey"] componentsSeparatedByString:@";"] lastObject];
         NSData *videoData = [NSData dataWithContentsOfFile:path];
+        if (!videoData) {
+            return ;
+        }
         NSError *error;
         XMPPJID *recipient = [XMPPJID jidWithUser:self.chatJID.user domain:bXMPP_domain resource:bXMPP_resource];
-        NSString *file = [NSString stringWithFormat:@"%@.mov",[XMPPStream generateUUID]];
-        [[TLXMPPManager manager] sendData:videoData named:file toRecipient:recipient description:@"tinlin" error:&error];
+        NSString *extension = [path pathExtension];
+        NSString *fileName = [[XMPPStream generateUUID] stringByAppendingPathExtension:extension];
+        [[TLXMPPManager manager] sendData:videoData named:fileName toRecipient:recipient description:@"tinlin" error:&error];
         if (!error) {
             [JSQSystemSoundPlayer jsq_playMessageSentSound];
         }

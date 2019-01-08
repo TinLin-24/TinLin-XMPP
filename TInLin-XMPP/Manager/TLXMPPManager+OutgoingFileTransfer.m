@@ -15,11 +15,12 @@
 #pragma mark - Public
 
 - (BOOL)sendData:(NSData *)data named:(NSString *)name toRecipient:(XMPPJID *)recipient description:(NSString *)description error:(NSError *__autoreleasing *)errPtr {
-    return [self.xmppOutgoingFileTransfer sendData:data
-                                             named:name
-                                       toRecipient:recipient
-                                       description:description
-                                             error:errPtr];
+    BOOL result = [self.xmppOutgoingFileTransfer sendData:data
+                                                    named:name
+                                              toRecipient:recipient
+                                              description:description
+                                                    error:errPtr];
+    return result;
 }
 
 #pragma mark - XMPPOutgoingFileTransferDelegate
@@ -59,6 +60,10 @@
 
 - (void)xmppOutgoingFileTransfer:(XMPPOutgoingFileTransfer *)sender didFailWithError:(NSError *)error {
     NSLog(@"%@",error);
+    if (error.code == 503) {
+        // 用户离线
+        
+    }
 }
 
 @end

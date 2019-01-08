@@ -15,17 +15,17 @@
 #define BorderColor [UIColor colorWithHexString:@"#e5e5e5"]
 
 /// XMPP
-//#define kXMPP_HOST @"192.168.0.186"
-//#define kXMPP_PORT 5222
-//#define bXMPP_domain @"macdemacbook-pro.local"
-//#define bXMPP_resource @"iOS"
-//#define bXMPP_subdomain @"conference"
-
-#define kXMPP_HOST @"192.168.43.110"
+#define kXMPP_HOST @"192.168.0.186"
 #define kXMPP_PORT 5222
-#define bXMPP_domain @"192.168.1.104"
+#define bXMPP_domain @"macdemacbook-pro.local"
 #define bXMPP_resource @"iOS"
 #define bXMPP_subdomain @"conference"
+
+//#define kXMPP_HOST @"192.168.43.110"
+//#define kXMPP_PORT 5222
+//#define bXMPP_domain @"192.168.1.104"
+//#define bXMPP_resource @"iOS"
+//#define bXMPP_subdomain @"conference"
 
 /// 通知
 #define kLOGIN_RESULT @"LOGIN_RESULT"
